@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html class="global xlarge" lang="ru-RU"><script async="" src="%D0%A0%D0%B0%D0%B1%D0%BE%D1%82%D0%B0%20%D1%81%20%D0%B2%D0%B5%D0%B1-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%BC%D0%B8%20%D1%81%20%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%D1%8E%20Requests%20%D0%B8%20Beautiful%20Soup%20%D0%B2%20Python%203%20|%20www.8host.com_files/a_008.html"></script><script type="text/javascript" async="" src="%D0%A0%D0%B0%D0%B1%D0%BE%D1%82%D0%B0%20%D1%81%20%D0%B2%D0%B5%D0%B1-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%BC%D0%B8%20%D1%81%20%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%D1%8E%20Requests%20%D0%B8%20Beautiful%20Soup%20%D0%B2%20Python%203%20|%20www.8host.com_files/analytics.js"></script><script src="%D0%A0%D0%B0%D0%B1%D0%BE%D1%82%D0%B0%20%D1%81%20%D0%B2%D0%B5%D0%B1-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%BC%D0%B8%20%D1%81%20%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%D1%8E%20Requests%20%D0%B8%20Beautiful%20Soup%20%D0%B2%20Python%203%20|%20www.8host.com_files/osd.js"></script><script src="%D0%A0%D0%B0%D0%B1%D0%BE%D1%82%D0%B0%20%D1%81%20%D0%B2%D0%B5%D0%B1-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%BC%D0%B8%20%D1%81%20%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%D1%8E%20Requests%20%D0%B8%20Beautiful%20Soup%20%D0%B2%20Python%203%20|%20www.8host.com_files/ca-pub-4672639452561295.js"></script><script async="" src="%D0%A0%D0%B0%D0%B1%D0%BE%D1%82%D0%B0%20%D1%81%20%D0%B2%D0%B5%D0%B1-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%BC%D0%B8%20%D1%81%20%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%D1%8E%20Requests%20%D0%B8%20Beautiful%20Soup%20%D0%B2%20Python%203%20|%20www.8host.com_files/analytics.js"></script><script type="text/javascript" async="" src="%D0%A0%D0%B0%D0%B1%D0%BE%D1%82%D0%B0%20%D1%81%20%D0%B2%D0%B5%D0%B1-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%BC%D0%B8%20%D1%81%20%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%D1%8E%20Requests%20%D0%B8%20Beautiful%20Soup%20%D0%B2%20Python%203%20|%20www.8host.com_files/watch.js"></script><script async="" src="%D0%A0%D0%B0%D0%B1%D0%BE%D1%82%D0%B0%20%D1%81%20%D0%B2%D0%B5%D0%B1-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%BC%D0%B8%20%D1%81%20%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%D1%8E%20Requests%20%D0%B8%20Beautiful%20Soup%20%D0%B2%20Python%203%20|%20www.8host.com_files/gtm.js"></script><script async="" src="%D0%A0%D0%B0%D0%B1%D0%BE%D1%82%D0%B0%20%D1%81%20%D0%B2%D0%B5%D0%B1-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%BC%D0%B8%20%D1%81%20%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%D1%8E%20Requests%20%D0%B8%20Beautiful%20Soup%20%D0%B2%20Python%203%20|%20www.8host.com_files/analytics.js"></script><script type="text/javascript" async="" src="%D0%A0%D0%B0%D0%B1%D0%BE%D1%82%D0%B0%20%D1%81%20%D0%B2%D0%B5%D0%B1-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%BC%D0%B8%20%D1%81%20%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%D1%8E%20Requests%20%D0%B8%20Beautiful%20Soup%20%D0%B2%20Python%203%20|%20www.8host.com_files/library.js"></script><script type="text/javascript" charset="utf-8" id="zm-extension" src="%D0%A0%D0%B0%D0%B1%D0%BE%D1%82%D0%B0%20%D1%81%20%D0%B2%D0%B5%D0%B1-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%BC%D0%B8%20%D1%81%20%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%D1%8E%20Requests%20%D0%B8%20Beautiful%20Soup%20%D0%B2%20Python%203%20|%20www.8host.com_files/webrtc-patch.js" async=""></script><head><meta name="viewport" content="user-scalable=yes,width=device-width,initial-scale=1"><style type="text/css">html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}table{border-collapse:collapse;border-spacing:0}body{-webkit-text-size-adjust:none}</style><style type="text/css">*,*:before,*:after{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box}</style><meta name="viewport" content="initial-scale=1">
+	<meta charset="UTF-8">
+	<link rel="apple-touch-icon-precomposed" href="https://www.8host.com/blog/wp-content/themes/wp-8host-new/images/favicon/favicon-152.png">
+	<title>  Работа с веб-данными с помощью Requests и Beautiful Soup в Python 3 |  www.8host.com</title>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<link href="%D0%A0%D0%B0%D0%B1%D0%BE%D1%82%D0%B0%20%D1%81%20%D0%B2%D0%B5%D0%B1-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%BC%D0%B8%20%D1%81%20%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%D1%8E%20Requests%20%D0%B8%20Beautiful%20Soup%20%D0%B2%20Python%203%20|%20www.8host.com_files/css.css" rel="stylesheet" type="text/css">
+	<!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
+	<script>
+		var templateUrl = 'https://www.8host.com/blog/wp-content/themes/wp-8host-new';
+	</script>
+		
+<!-- All in One SEO Pack 2.3.14.2 by Michael Torbert of Semper Fi Web Design[-1,-1] -->
+<meta name="description" content="Интернет предоставляет нам больше данных, чем любой из нас может прочитать и воспринять, поэтому с этой информацией часто удобнее работать программно. Иногда">
+
+<link rel="canonical" href="%D0%A0%D0%B0%D0%B1%D0%BE%D1%82%D0%B0%20%D1%81%20%D0%B2%D0%B5%D0%B1-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%BC%D0%B8%20%D1%81%20%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%D1%8E%20Requests%20%D0%B8%20Beautiful%20Soup%20%D0%B2%20Python%203%20|%20www.8host.com_files/a_005.html">
+<!-- /all in one seo pack -->
+<link rel="dns-prefetch" href="https://pagead2.googlesyndication.com/">
+<link rel="dns-prefetch" href="https://s.w.org/">
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.3\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.3\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/www.8host.com\/blog\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.8"}};
+			!function(a,b,c){function d(a){var b,c,d,e,f=String.fromCharCode;if(!k||!k.fillText)return!1;switch(k.clearRect(0,0,j.width,j.height),k.textBaseline="top",k.font="600 32px Arial",a){case"flag":return k.fillText(f(55356,56826,55356,56819),0,0),b=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,56826,8203,55356,56819),0,0),c=j.toDataURL(),b===c&&(k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447),0,0),b=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447),0,0),c=j.toDataURL(),b!==c);case"emoji4":return k.fillText(f(55358,56794,8205,9794,65039),0,0),d=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55358,56794,8203,9794,65039),0,0),e=j.toDataURL(),d!==e}return!1}function e(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i,j=b.createElement("canvas"),k=j.getContext&&j.getContext("2d");for(i=Array("flag","emoji4"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script src="%D0%A0%D0%B0%D0%B1%D0%BE%D1%82%D0%B0%20%D1%81%20%D0%B2%D0%B5%D0%B1-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%BC%D0%B8%20%D1%81%20%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%D1%8E%20Requests%20%D0%B8%20Beautiful%20Soup%20%D0%B2%20Python%203%20|%20www.8host.com_files/wp-emoji-release.js" type="text/javascript" defer="defer"></script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel="stylesheet" id="wp-pagenavi-css" href="%D0%A0%D0%B0%D0%B1%D0%BE%D1%82%D0%B0%20%D1%81%20%D0%B2%D0%B5%D0%B1-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%BC%D0%B8%20%D1%81%20%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%D1%8E%20Requests%20%D0%B8%20Beautiful%20Soup%20%D0%B2%20Python%203%20|%20www.8host.com_files/pagenavi-css.css" media="all">
+<script type="text/javascript" src="%D0%A0%D0%B0%D0%B1%D0%BE%D1%82%D0%B0%20%D1%81%20%D0%B2%D0%B5%D0%B1-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%BC%D0%B8%20%D1%81%20%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%D1%8E%20Requests%20%D0%B8%20Beautiful%20Soup%20%D0%B2%20Python%203%20|%20www.8host.com_files/jquery.js"></script>
+<style type="text/css">.row{border-bottom:solid 1px transparent}.row>*{float:left}.row:after,.row:before{content:"";display:block;clear:both;height:0}.row.uniform>*>:first-child{margin-top:0}.row.uniform>*>:last-child{margin-bottom:0}.\31 2u,.\31 2u\24{width:100%;clear:none;margin-left:0}.\31 1u,.\31 1u\24{width:91.6666666667%;clear:none;margin-left:0}.\31 0u,.\31 0u\24{width:83.3333333333%;clear:none;margin-left:0}.\39 u,.\39 u\24{width:75%;clear:none;margin-left:0}.\38 u,.\38 u\24{width:66.6666666667%;clear:none;margin-left:0}.\37 u,.\37 u\24{width:58.3333333333%;clear:none;margin-left:0}.\36 u,.\36 u\24{width:50%;clear:none;margin-left:0}.\35 u,.\35 u\24{width:41.6666666667%;clear:none;margin-left:0}.\34 u,.\34 u\24{width:33.3333333333%;clear:none;margin-left:0}.\33 u,.\33 u\24{width:25%;clear:none;margin-left:0}.\32 u,.\32 u\24{width:16.6666666667%;clear:none;margin-left:0}.\31 u,.\31 u\24{width:8.3333333333%;clear:none;margin-left:0}.\31 2u\24+*,.\31 1u\24+*,.\31 0u\24+*,.\39 u\24+*,.\38 u\24+*,.\37 u\24+*,.\36 u\24+*,.\35 u\24+*,.\34 u\24+*,.\33 u\24+*,.\32 u\24+*,.\31 u\24+*{clear:left;}.\-11u{margin-left:91.6666666667%}.\-10u{margin-left:83.3333333333%}.\-9u{margin-left:75%}.\-8u{margin-left:66.6666666667%}.\-7u{margin-left:58.3333333333%}.\-6u{margin-left:50%}.\-5u{margin-left:41.6666666667%}.\-4u{margin-left:33.3333333333%}.\-3u{margin-left:25%}.\-2u{margin-left:16.6666666667%}.\-1u{margin-left:8.3333333333%}</style><style type="text/css">.container{margin-left:auto;margin-right:auto;width:1200px}.container.\31 25\25{width:100%;max-width:1500px;min-width:1200px}.container.\37 5\25{width:900px}.container.\35 0\25{width:600px}.container.\32 5\25{width:300px}</style><style type="text/css">.row>*{padding:0px 0 0 2em}.row{margin:0px 0 -1px -2em}.row.uniform>*{padding:2em 0 0 2em}.row.uniform{margin:-2em 0 -1px -2em}.row.\32 00\25>*{padding:0px 0 0 4em}.row.\32 00\25{margin:0px 0 -1px -4em}.row.uniform.\32 00\25>*{padding:4em 0 0 4em}.row.uniform.\32 00\25{margin:-4em 0 -1px -4em}.row.\31 50\25>*{padding:0px 0 0 3em}.row.\31 50\25{margin:0px 0 -1px -3em}.row.uniform.\31 50\25>*{padding:3em 0 0 3em}.row.uniform.\31 50\25{margin:-3em 0 -1px -3em}.row.\35 0\25>*{padding:0px 0 0 1em}.row.\35 0\25{margin:0px 0 -1px -1em}.row.uniform.\35 0\25>*{padding:1em 0 0 1em}.row.uniform.\35 0\25{margin:-1em 0 -1px -1em}.row.\32 5\25>*{padding:0px 0 0 0.5em}.row.\32 5\25{margin:0px 0 -1px -0.5em}.row.uniform.\32 5\25>*{padding:0.5em 0 0 0.5em}.row.uniform.\32 5\25{margin:-0.5em 0 -1px -0.5em}.row.\30 \25>*{padding:0}.row.\30 \25{margin:0 0 -1px 0}</style><style type="text/css">.\31 2u\28 global\29,.\31 2u\24\28 global\29{width:100%;clear:none;margin-left:0}.\31 1u\28 global\29,.\31 1u\24\28 global\29{width:91.6666666667%;clear:none;margin-left:0}.\31 0u\28 global\29,.\31 0u\24\28 global\29{width:83.3333333333%;clear:none;margin-left:0}.\39 u\28 global\29,.\39 u\24\28 global\29{width:75%;clear:none;margin-left:0}.\38 u\28 global\29,.\38 u\24\28 global\29{width:66.6666666667%;clear:none;margin-left:0}.\37 u\28 global\29,.\37 u\24\28 global\29{width:58.3333333333%;clear:none;margin-left:0}.\36 u\28 global\29,.\36 u\24\28 global\29{width:50%;clear:none;margin-left:0}.\35 u\28 global\29,.\35 u\24\28 global\29{width:41.6666666667%;clear:none;margin-left:0}.\34 u\28 global\29,.\34 u\24\28 global\29{width:33.3333333333%;clear:none;margin-left:0}.\33 u\28 global\29,.\33 u\24\28 global\29{width:25%;clear:none;margin-left:0}.\32 u\28 global\29,.\32 u\24\28 global\29{width:16.6666666667%;clear:none;margin-left:0}.\31 u\28 global\29,.\31 u\24\28 global\29{width:8.3333333333%;clear:none;margin-left:0}.\31 2u\24\28 global\29+*,.\31 1u\24\28 global\29+*,.\31 0u\24\28 global\29+*,.\39 u\24\28 global\29+*,.\38 u\24\28 global\29+*,.\37 u\24\28 global\29+*,.\36 u\24\28 global\29+*,.\35 u\24\28 global\29+*,.\34 u\24\28 global\29+*,.\33 u\24\28 global\29+*,.\32 u\24\28 global\29+*,.\31 u\24\28 global\29+*{clear:left;}.\-11u\28 global\29{margin-left:91.6666666667%}.\-10u\28 global\29{margin-left:83.3333333333%}.\-9u\28 global\29{margin-left:75%}.\-8u\28 global\29{margin-left:66.6666666667%}.\-7u\28 global\29{margin-left:58.3333333333%}.\-6u\28 global\29{margin-left:50%}.\-5u\28 global\29{margin-left:41.6666666667%}.\-4u\28 global\29{margin-left:33.3333333333%}.\-3u\28 global\29{margin-left:25%}.\-2u\28 global\29{margin-left:16.6666666667%}.\-1u\28 global\29{margin-left:8.3333333333%}.\31 2u\28 xlarge\29,.\31 2u\24\28 xlarge\29{width:100%;clear:none;margin-left:0}.\31 1u\28 xlarge\29,.\31 1u\24\28 xlarge\29{width:91.6666666667%;clear:none;margin-left:0}.\31 0u\28 xlarge\29,.\31 0u\24\28 xlarge\29{width:83.3333333333%;clear:none;margin-left:0}.\39 u\28 xlarge\29,.\39 u\24\28 xlarge\29{width:75%;clear:none;margin-left:0}.\38 u\28 xlarge\29,.\38 u\24\28 xlarge\29{width:66.6666666667%;clear:none;margin-left:0}.\37 u\28 xlarge\29,.\37 u\24\28 xlarge\29{width:58.3333333333%;clear:none;margin-left:0}.\36 u\28 xlarge\29,.\36 u\24\28 xlarge\29{width:50%;clear:none;margin-left:0}.\35 u\28 xlarge\29,.\35 u\24\28 xlarge\29{width:41.6666666667%;clear:none;margin-left:0}.\34 u\28 xlarge\29,.\34 u\24\28 xlarge\29{width:33.3333333333%;clear:none;margin-left:0}.\33 u\28 xlarge\29,.\33 u\24\28 xlarge\29{width:25%;clear:none;margin-left:0}.\32 u\28 xlarge\29,.\32 u\24\28 xlarge\29{width:16.6666666667%;clear:none;margin-left:0}.\31 u\28 xlarge\29,.\31 u\24\28 xlarge\29{width:8.3333333333%;clear:none;margin-left:0}.\31 2u\24\28 xlarge\29+*,.\31 1u\24\28 xlarge\29+*,.\31 0u\24\28 xlarge\29+*,.\39 u\24\28 xlarge\29+*,.\38 u\24\28 xlarge\29+*,.\37 u\24\28 xlarge\29+*,.\36 u\24\28 xlarge\29+*,.\35 u\24\28 xlarge\29+*,.\34 u\24\28 xlarge\29+*,.\33 u\24\28 xlarge\29+*,.\32 u\24\28 xlarge\29+*,.\31 u\24\28 xlarge\29+*{clear:left;}.\-11u\28 xlarge\29{margin-left:91.6666666667%}.\-10u\28 xlarge\29{margin-left:83.3333333333%}.\-9u\28 xlarge\29{margin-left:75%}.\-8u\28 xlarge\29{margin-left:66.6666666667%}.\-7u\28 xlarge\29{margin-left:58.3333333333%}.\-6u\28 xlarge\29{margin-left:50%}.\-5u\28 xlarge\29{margin-left:41.6666666667%}.\-4u\28 xlarge\29{margin-left:33.3333333333%}.\-3u\28 xlarge\29{margin-left:25%}.\-2u\28 xlarge\29{margin-left:16.6666666667%}.\-1u\28 xlarge\29{margin-left:8.3333333333%}</style><style type="text/css">.not-global,.not-xlarge{display:none!important}.only-large,.only-medium,.only-small,.only-xsmall{display:none!important}</style><link rel="stylesheet" type="text/css" href="%D0%A0%D0%B0%D0%B1%D0%BE%D1%82%D0%B0%20%D1%81%20%D0%B2%D0%B5%D0%B1-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%BC%D0%B8%20%D1%81%20%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%D1%8E%20Requests%20%D0%B8%20Beautiful%20Soup%20%D0%B2%20Python%203%20|%20www.8host.com_files/style.css"><link rel="stylesheet" type="text/css" href="%D0%A0%D0%B0%D0%B1%D0%BE%D1%82%D0%B0%20%D1%81%20%D0%B2%D0%B5%D0%B1-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%BC%D0%B8%20%D1%81%20%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%D1%8E%20Requests%20%D0%B8%20Beautiful%20Soup%20%D0%B2%20Python%203%20|%20www.8host.com_files/style-xlarge.css"><script type="text/javascript" src="%D0%A0%D0%B0%D0%B1%D0%BE%D1%82%D0%B0%20%D1%81%20%D0%B2%D0%B5%D0%B1-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%BC%D0%B8%20%D1%81%20%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%D1%8E%20Requests%20%D0%B8%20Beautiful%20Soup%20%D0%B2%20Python%203%20|%20www.8host.com_files/skel.js"></script>
+<script type="text/javascript" src="%D0%A0%D0%B0%D0%B1%D0%BE%D1%82%D0%B0%20%D1%81%20%D0%B2%D0%B5%D0%B1-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%BC%D0%B8%20%D1%81%20%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%D1%8E%20Requests%20%D0%B8%20Beautiful%20Soup%20%D0%B2%20Python%203%20|%20www.8host.com_files/skel-layers.js"></script>
+<script type="text/javascript" src="%D0%A0%D0%B0%D0%B1%D0%BE%D1%82%D0%B0%20%D1%81%20%D0%B2%D0%B5%D0%B1-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%BC%D0%B8%20%D1%81%20%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%D1%8E%20Requests%20%D0%B8%20Beautiful%20Soup%20%D0%B2%20Python%203%20|%20www.8host.com_files/init.js"></script>
+<script type="text/javascript" src="%D0%A0%D0%B0%D0%B1%D0%BE%D1%82%D0%B0%20%D1%81%20%D0%B2%D0%B5%D0%B1-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%BC%D0%B8%20%D1%81%20%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%D1%8E%20Requests%20%D0%B8%20Beautiful%20Soup%20%D0%B2%20Python%203%20|%20www.8host.com_files/adsbygoogle_002.js"></script><link rel="preload" href="%D0%A0%D0%B0%D0%B1%D0%BE%D1%82%D0%B0%20%D1%81%20%D0%B2%D0%B5%D0%B1-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%BC%D0%B8%20%D1%81%20%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%D1%8E%20Requests%20%D0%B8%20Beautiful%20Soup%20%D0%B2%20Python%203%20|%20www.8host.com_files/integrator.js" as="script"><script type="text/javascript" src="%D0%A0%D0%B0%D0%B1%D0%BE%D1%82%D0%B0%20%D1%81%20%D0%B2%D0%B5%D0%B1-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%BC%D0%B8%20%D1%81%20%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%D1%8E%20Requests%20%D0%B8%20Beautiful%20Soup%20%D0%B2%20Python%203%20|%20www.8host.com_files/integrator.js"></script><link rel="preload" href="%D0%A0%D0%B0%D0%B1%D0%BE%D1%82%D0%B0%20%D1%81%20%D0%B2%D0%B5%D0%B1-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%BC%D0%B8%20%D1%81%20%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%D1%8E%20Requests%20%D0%B8%20Beautiful%20Soup%20%D0%B2%20Python%203%20|%20www.8host.com_files/integrator_002.js" as="script"><script type="text/javascript" src="%D0%A0%D0%B0%D0%B1%D0%BE%D1%82%D0%B0%20%D1%81%20%D0%B2%D0%B5%D0%B1-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%BC%D0%B8%20%D1%81%20%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%D1%8E%20Requests%20%D0%B8%20Beautiful%20Soup%20%D0%B2%20Python%203%20|%20www.8host.com_files/integrator_002.js"></script>
+<link rel="https://api.w.org/" href="https://www.8host.com/blog/wp-json/">
+<link rel="alternate" type="application/json+oembed" href="https://www.8host.com/blog/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.8host.com%2Fblog%2Frabota-s-veb-dannymi-s-pomoshhyu-requests-i-beautiful-soup-v-python-3%2F">
+<link rel="alternate" type="text/xml+oembed" href="https://www.8host.com/blog/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.8host.com%2Fblog%2Frabota-s-veb-dannymi-s-pomoshhyu-requests-i-beautiful-soup-v-python-3%2F&amp;format=xml">
+
+ <!-- OneAll.com / Social Login for WordPress / v5.3 -->
+<script data-cfasync="false" type="text/javascript">
+ (function() {
+  var oa = document.createElement('script'); oa.type = 'text/javascript';
+  oa.async = true; oa.src = 'https://8host.api.oneall.com/socialize/library.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(oa, s);
+ })();
+</script>
+<script async="" src="%D0%A0%D0%B0%D0%B1%D0%BE%D1%82%D0%B0%20%D1%81%20%D0%B2%D0%B5%D0%B1-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%BC%D0%B8%20%D1%81%20%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%D1%8E%20Requests%20%D0%B8%20Beautiful%20Soup%20%D0%B2%20Python%203%20|%20www.8host.com_files/adsbygoogle.js"></script><script type="text/javascript" src="%D0%A0%D0%B0%D0%B1%D0%BE%D1%82%D0%B0%20%D1%81%20%D0%B2%D0%B5%D0%B1-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%BC%D0%B8%20%D1%81%20%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%D1%8E%20Requests%20%D0%B8%20Beautiful%20Soup%20%D0%B2%20Python%203%20|%20www.8host.com_files/si_captcha.js"></script>
+<!-- begin SI CAPTCHA Anti-Spam - login/register form style -->
+<style type="text/css">
+.si_captcha_small { width:175px; height:45px; padding-top:10px; padding-bottom:10px; }
+.si_captcha_large { width:250px; height:60px; padding-top:10px; padding-bottom:10px; }
+img#si_image_com { border-style:none; margin:0; padding-right:5px; float:left; }
+img#si_image_reg { border-style:none; margin:0; padding-right:5px; float:left; }
+img#si_image_log { border-style:none; margin:0; padding-right:5px; float:left; }
+img#si_image_side_login { border-style:none; margin:0; padding-right:5px; float:left; }
+img#si_image_checkout { border-style:none; margin:0; padding-right:5px; float:left; }
+img#si_image_jetpack { border-style:none; margin:0; padding-right:5px; float:left; }
+img#si_image_bbpress_topic { border-style:none; margin:0; padding-right:5px; float:left; }
+.si_captcha_refresh { border-style:none; margin:0; vertical-align:bottom; }
+div#si_captcha_input { display:block; padding-top:15px; padding-bottom:5px; }
+label#si_captcha_code_label { margin:0; }
+input#si_captcha_code_input { width:65px; }
+p#si_captcha_code_p { clear: left; padding-top:10px; }
+.si-captcha-jetpack-error { color:#DC3232; }
+</style>
+<!-- end SI CAPTCHA Anti-Spam - login/register form style -->
+ 
+		<link rel="stylesheet" href="%D0%A0%D0%B0%D0%B1%D0%BE%D1%82%D0%B0%20%D1%81%20%D0%B2%D0%B5%D0%B1-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%BC%D0%B8%20%D1%81%20%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%D1%8E%20Requests%20%D0%B8%20Beautiful%20Soup%20%D0%B2%20Python%203%20|%20www.8host.com_files/font-awesome.css">
+	<script src="%D0%A0%D0%B0%D0%B1%D0%BE%D1%82%D0%B0%20%D1%81%20%D0%B2%D0%B5%D0%B1-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%BC%D0%B8%20%D1%81%20%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%D1%8E%20Requests%20%D0%B8%20Beautiful%20Soup%20%D0%B2%20Python%203%20|%20www.8host.com_files/main.js"></script>
+    <noscript>
+		<link rel="stylesheet" href="https://www.8host.com/blog/wp-content/themes/wp-8host-new/css/skel.css" />
+		<link rel="stylesheet" href="https://www.8host.com/blog/wp-content/themes/wp-8host-new/css/style.css" />
+		<link rel="stylesheet" href="https://www.8host.com/blog/wp-content/themes/wp-8host-new/css/style-xlarge.css" />
+	</noscript>
+<!-- End Google Tag Manager -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-41429720-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+<script type="text/javascript" async="" src="%D0%A0%D0%B0%D0%B1%D0%BE%D1%82%D0%B0%20%D1%81%20%D0%B2%D0%B5%D0%B1-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%BC%D0%B8%20%D1%81%20%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%D1%8E%20Requests%20%D0%B8%20Beautiful%20Soup%20%D0%B2%20Python%203%20|%20www.8host.com_files/embed.js"></script><script async="" type="text/javascript" src="%D0%A0%D0%B0%D0%B1%D0%BE%D1%82%D0%B0%20%D1%81%20%D0%B2%D0%B5%D0%B1-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%BC%D0%B8%20%D1%81%20%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%D1%8E%20Requests%20%D0%B8%20Beautiful%20Soup%20%D0%B2%20Python%203%20|%20www.8host.com_files/count.js"></script><link rel="prefetch" as="style" href="%D0%A0%D0%B0%D0%B1%D0%BE%D1%82%D0%B0%20%D1%81%20%D0%B2%D0%B5%D0%B1-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%BC%D0%B8%20%D1%81%20%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%D1%8E%20Requests%20%D0%B8%20Beautiful%20Soup%20%D0%B2%20Python%203%20|%20www.8host.com_files/a_data_003/lounge.css"><link rel="prefetch" as="script" href="%D0%A0%D0%B0%D0%B1%D0%BE%D1%82%D0%B0%20%D1%81%20%D0%B2%D0%B5%D0%B1-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%BC%D0%B8%20%D1%81%20%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%D1%8E%20Requests%20%D0%B8%20Beautiful%20Soup%20%D0%B2%20Python%203%20|%20www.8host.com_files/a_data_003/common.js"><link rel="prefetch" as="script" href="%D0%A0%D0%B0%D0%B1%D0%BE%D1%82%D0%B0%20%D1%81%20%D0%B2%D0%B5%D0%B1-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%BC%D0%B8%20%D1%81%20%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%D1%8E%20Requests%20%D0%B8%20Beautiful%20Soup%20%D0%B2%20Python%203%20|%20www.8host.com_files/a_data_003/lounge.js"><link rel="prefetch" as="script" href="%D0%A0%D0%B0%D0%B1%D0%BE%D1%82%D0%B0%20%D1%81%20%D0%B2%D0%B5%D0%B1-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%BC%D0%B8%20%D1%81%20%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%D1%8E%20Requests%20%D0%B8%20Beautiful%20Soup%20%D0%B2%20Python%203%20|%20www.8host.com_files/a_data_003/config.js"><script src="%D0%A0%D0%B0%D0%B1%D0%BE%D1%82%D0%B0%20%D1%81%20%D0%B2%D0%B5%D0%B1-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%BC%D0%B8%20%D1%81%20%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%D1%8E%20Requests%20%D0%B8%20Beautiful%20Soup%20%D0%B2%20Python%203%20|%20www.8host.com_files/count-data.js"></script><script src="%D0%A0%D0%B0%D0%B1%D0%BE%D1%82%D0%B0%20%D1%81%20%D0%B2%D0%B5%D0%B1-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%BC%D0%B8%20%D1%81%20%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%D1%8E%20Requests%20%D0%B8%20Beautiful%20Soup%20%D0%B2%20Python%203%20|%20www.8host.com_files/alfalfa.js" async="" charset="UTF-8"></script></head>
+<body class=""><div id="skel-layers-wrapper" style="position: relative; left: 0px; right: 0px; top: 0px; backface-visibility: hidden; transition: -webkit-transform 0.5s ease 0s, opacity 0.5s ease 0s;">
+<!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5QBLV4"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5QBLV4');</script>
+
+<script type="text/javascript">(window.Image ? (new Image()) : document.createElement('img')).src = location.protocol + '//vk.com/rtrg?r=h/oz4XxFtFEerFNe9q2/YfYiHnSGXTUntBIbuR5tJptSPCyV0RzFc5qa1ST5*UCnXjj/fZ6XFBFRRAECdSw8toPbCzrpiwrq9KLsMAxI*MtjZe52iGwDqpq3hD6zbZgjeK6dayCbPtOh1A4DGAQjNfOu/DVXINl/cP*k/N9egxQ-';</script>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function() {
+            try {
+                w.yaCounter32842552 = new Ya.Metrika({
+                    id:32842552,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true,
+                    webvisor:true
+                });
+            } catch(e) { }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else { f(); }
+    })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="<a class="vglnk" href="https://mc.yandex.ru/watch/32842552" rel="nofollow"><span>https</span><span>://</span><span>mc</span><span>.</span><span>yandex</span><span>.</span><span>ru</span><span>/</span><span>watch</span><span>/</span><span>32842552</span></a>" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+<!-- End Google Tag Manager -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-41429720-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+	<!-- Header -->
+	<header id="header">
+		<h1><a href="https://www.8host.com/"><img src="%D0%A0%D0%B0%D0%B1%D0%BE%D1%82%D0%B0%20%D1%81%20%D0%B2%D0%B5%D0%B1-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%BC%D0%B8%20%D1%81%20%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%D1%8E%20Requests%20%D0%B8%20Beautiful%20Soup%20%D0%B2%20Python%203%20|%20www.8host.com_files/logo-8host.png" alt="Профессиональный облачный хостинг. Быстрый, надежный и свободный"></a></h1>
+		<nav id="nav">
+			<ul>
+				<li>
+					<a href="https://www.8host.com/">Главная</a>
+				</li>
+				<li>
+					<a href="https://www.8host.com/features">Преимущества</a>
+					<div class="drop">
+						<ul class="drop-menu">
+							<li><a href="https://www.8host.com/features#features-tech">Технологии</a>
+								<div class="drop-info hidden">Размещение серверов в надежных дата-центрах Европы. Откройте облачный VPS/VDS сервер на быстрых SSD за 1 минуту!</div>
+							</li>
+
+							<li><a href="https://www.8host.com/features#features-freedom">Свобода и безопасность</a>
+								<div class="drop-info hidden">Лучший хостинг:<br>- оградит данные от нежелательного доступа в охраняемом европейском ЦОДе<br>- примет оплату хоть в bitcoin ! <br>- позволит поставить свой дистрибутив</div>
+							</li>
+
+							<li><a href="https://www.8host.com/features#features-reliability">Надежность</a>
+								<div class="drop-info hidden">- защита от DDos-атак <br>- бесплатный backup <br>- Uptime 99,9999% <br>- ЦОД - TIER III <br>- провайдер - TIER I</div>
+							</li>
+
+							<li><a href="https://www.8host.com/features#features-access">Доступность</a>
+								<div class="drop-info hidden">Поддержим на русском языке 24/7/365 Работаем с юрлицами и физлицами. Вам прямо сейчас нужно 24 ядра и 72 Gb RAM ? Пожалуйста!</div>
+							</li>
+						</ul>
+					</div>
+				</li>
+				<li>
+					<a href="https://www.8host.com/pricing">Стоимость</a>
+					<div class="drop drop-cost">
+						<ul class="drop-menu">
+							<li><a href="https://www.8host.com/pricing">Цены VPS</a>
+								<div class="drop-info hidden">Наши выгодные тарифы докажут, что дешевый хостинг вы еще не знали!</div>
+							</li>
+
+							<li><a href="https://www.8host.com/pricing#pricing-cms">Цены CMS</a>
+								<div class="drop-info hidden">Минутное дело: выберите конфигурацию, оплатите и CMS на VPS готова. <br>Money Back – 30 дней!</div>
+							</li>
+							
+							<li><a href="https://www.8host.com/pricing#payment-methods">Способы оплаты</a>
+								<div class="drop-info hidden">Банковскими картами, электронной валютой, через терминалы Qiwi, Webmoney, PayPal, Новоплат и др.</div>
+							</li>
+						</ul>
+					</div>
+				</li>
+				<li>
+					<a href="https://www.8host.com/blog/">Информаторий</a>
+					<div class="drop drop-informateka">
+						<ul class="drop-menu">
+							<li><a href="https://www.8host.com/contact-us">Техподдержка</a>
+								<div class="drop-info hidden">Задайте вопрос в службу поддержки 24/7/365</div>
+							</li>
+
+							<li><a href="https://www.8host.com/blog">База знаний</a>
+								<div class="drop-info hidden">Найдите ответы в нашей базе и познакомьтесь с рекомендациями</div>
+							</li>
+						</ul>
+					</div>
+				</li>
+				<li>
+					<a href="https://www.8host.com/contact-us">Контакты</a>
+					<div class="drop drop-informateka">
+						<ul class="drop-menu">
+							<li><a href="https://www.facebook.com/pages/8Host/1063590243670236?ref=hl">Facebook</a></li>
+							<li><a href="https://twitter.com/8Host_social">Twitter</a></li>
+							<li><a href="https://plus.google.com/u/0/b/105145648824775848083/105145648824775848083/about">Google+</a></li>
+							<li><a href="https://vk.com/8host">VK</a></li>
+						</ul>
+					</div>
+				</li>
+				<li><a href="https://www.8host.com/portal/" class="button login-special">Вход</a></li>
+				<li><a href="https://www.8host.com/portal/register.php" class="button register-special">Регистрация</a></li>
+			</ul>
+		</nav>
+	</header>
+
+
+
+
+
+
+
+
+
+
+
+<section class="wrapper">
+	<div class="container">
+		<div class="row">
+								<div class="3u 12u$(small) article-sidebar">
+
+					<aside class="sidebar" role="complementary">
+						<div class="sidebar-widget">
+							<div id="text-7" class="widget_text"><h3>Предложение от <a class="vglnk" href="http://8host.com/" rel="nofollow"><span>8host</span><span>.</span><span>com</span></a></h3>			<div class="textwidget"><p><a href="https://www.8host.com/pricing?utm_source=blog_8host&amp;utm_medium=cpc&amp;utm_campaign=blog"><img src="%D0%A0%D0%B0%D0%B1%D0%BE%D1%82%D0%B0%20%D1%81%20%D0%B2%D0%B5%D0%B1-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%BC%D0%B8%20%D1%81%20%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%D1%8E%20Requests%20%D0%B8%20Beautiful%20Soup%20%D0%B2%20Python%203%20|%20www.8host.com_files/240x240_1.jpg"></a></p>
+</div>
+		</div>						</div>
+					</aside>
+
+					</div>
+				
+				
+					<div class="6u 12u$(small)">
+				
+				<main role="main">
+					<!-- section -->
+					<section>
+
+						
+						<!-- article -->
+						<article id="post-3287" class="post-3287 post type-post status-publish format-standard hentry category-python tag-beautiful-soup tag-python-3 tag-requests">
+
+							<!-- post thumbnail -->
+													<!-- /post thumbnail -->
+
+						<!-- post title -->
+						<header class="major article-header">
+							<h1>
+								<a href="https://www.8host.com/blog/rabota-s-veb-dannymi-s-pomoshhyu-requests-i-beautiful-soup-v-python-3/" title="Работа с веб-данными с помощью Requests и Beautiful Soup в Python 3">Работа с веб-данными с помощью Requests и Beautiful Soup в Python 3</a>
+							</h1>
+						</header>
+						<!-- /post title -->
+
+						<!-- post details -->
+						<span class="date article-date"><i class="fa fa-calendar" aria-hidden="true"></i> Август 12, 2017 12:08 пп</span>
+						<span class="date article-date">4&nbsp;597 views</span>
+						<span class="date article-date"> | <i class="fa fa-comments" aria-hidden="true"></i> <span class="dsq-postid" data-dsqidentifier="3287 https://www.8host.com/blog/?p=3287">Комментариев нет</span></span>
+						<p class="article-category single-post-category"><i class="fa fa-tags" aria-hidden="true"></i> <a href="https://www.8host.com/blog/category/python/" rel="tag">Python</a>						<span class="author">| <i class="fa fa-user" aria-hidden="true"></i> <a href="https://www.8host.com/blog/author/amber/" title="Записи Amber" rel="author">Amber</a></span>
+						<span class="comments">| <a href="https://www.8host.com/blog/rabota-s-veb-dannymi-s-pomoshhyu-requests-i-beautiful-soup-v-python-3/#disqus_thread" data-disqus-identifier="3287 https://www.8host.com/blog/?p=3287">0 Comments</a></span></p>
+						<!-- /post details -->
+
+						<p>Интернет предоставляет нам больше данных, чем любой из нас 
+может прочитать и воспринять, поэтому с этой информацией часто удобнее 
+работать программно. Иногда эти данные предоставляются нам создателями 
+веб-сайтов через файлы с расширением .csv или через API. В других 
+случаях возникает необходимость собирать текст из Интернета.</p>
+<p>Данный мануал научит работать с пакетами <a href="http://docs.python-requests.org/en/master/">Requests</a>&nbsp;и&nbsp;<a href="https://www.crummy.com/software/BeautifulSoup/">Beautiful Soup</a>
+ для использования данных с веб-страниц. Модуль Requests позволяет 
+интегрировать программы Python с веб-сервисами, а модуль Beautiful Soup 
+предназначен для ускорения анализа экранных данных. С помощью 
+интерактивной консоли Python и этих библиотек можно проанализировать 
+веб-страницу и работать с имеющейся там текстовой информацией.</p>
+<h3>Требования</h3>
+<p>Вам понадобится среда разработки Python 3. Чтобы создать такую среду,
+ можно воспользоваться руководствами Настройка локальной среды 
+разработки для Python 3 в Ubuntu 16.04 или Установка Python 3 и 
+настройка среды разработки на сервере Ubuntu 16.04.</p>
+<p>Также рекомендуем ознакомиться со следующими статьями:</p>
+<ul>
+<li><a href="https://www.8host.com/blog/ispolzovanie-interaktivnoj-konsoli-python/">Использование интерактивной консоли Python</a></li>
+<li><a href="https://www.8host.com/blog/import-modulej-v-python-3/">Импорт модулей в Python 3</a></li>
+</ul>
+<p>Кроме того, вам нужно иметь базовые знания о структурах и тегах HTML.</p><div class="wpInsert wpInsertInPostAd wpInsertMiddle" style="margin: 5px; padding: 0px;
+display:block; text-align:center;"><ins class="adsbygoogle" style="display: block; text-align: center; height: 144px;" data-ad-format="fluid" data-ad-layout="in-article" data-ad-client="ca-pub-4672639452561295" data-ad-slot="5305723615" data-adsbygoogle-status="done"><ins id="aswift_0_expand" style="display:inline-table;border:none;height:144px;margin:0;padding:0;position:relative;visibility:visible;width:574px;background-color:transparent;"><ins id="aswift_0_anchor" style="display:block;border:none;height:144px;margin:0;padding:0;position:relative;visibility:visible;width:574px;background-color:transparent;"><iframe marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;width:574px;height:144px;" width="574" height="144" frameborder="0"></iframe></ins></ins></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>
+<h2>Установка Requests</h2>
+<p>Разверните среду программирования Python 3. Убедитесь, что вы 
+находитесь в каталоге, в котором находится ваша среда, и выполните 
+следующую команду:</p>
+<p><code>. my_env/bin/activate</code></p>
+<p>Чтобы работать с веб-страницами, их нужно будет запрашивать. 
+Библиотека Requests позволяет использовать HTTP в своих программах 
+Python.</p>
+<p>Установите Requests в среду программирования.</p>
+<p><code>pip install requests<br>
+Collecting requests<br>
+Downloading requests-2.18.1-py2.py3-none-any.whl (88kB)<br>
+100% |████████████████████████████████| 92kB 3.1MB/s<br>
+...<br>
+Installing collected packages: chardet, urllib3, certifi, idna, requests<br>
+Successfully installed certifi-2017.4.17 chardet-3.0.4 idna-2.5 requests-2.18.1 urllib3-1.21.1</code></p>
+<p>Если библиотека Requests была установлена ранее, вы получите такой вывод:</p>
+<p><code>Requirement already satisfied<br>
+...</code></p>
+<h2>Установка Beautiful Soup</h2>
+<p>Теперь нужно установить Beautiful Soup с помощью pip. На данный момент последней версией является Beautiful Soup 4.</p>
+<p><code>pip install beautifulsoup4</code></p>
+<p>Команда выведет:</p>
+<p><code>Collecting beautifulsoup4<br>
+Downloading beautifulsoup4-4.6.0-py3-none-any.whl (86kB)<br>
+100% |████████████████████████████████| 92kB 4.4MB/s<br>
+Installing collected packages: beautifulsoup4<br>
+Successfully installed beautifulsoup4-4.6.0</code></p>
+<p>Теперь можно приступать к работе с библиотеками.</p>
+<h2>Сбор данных веб-страницы с помощью Requests</h2>
+<p>С помощью этих двух библиотек Python, можно проанализировать веб-страницу.</p>
+<p>Перейдите в Python Interactive Console:</p>
+<p><code>python</code></p>
+<p style="padding-left: 30px;"><strong>Читайте также:</strong> <a href="https://www.8host.com/blog/ispolzovanie-interaktivnoj-konsoli-python/">Использование интерактивной консоли Python</a></p>
+<p>Импортируйте модуль Requests, чтобы собрать данные с веб-страницы:</p>
+<p><code>import requests</code></p>
+<p>Присвойте URL-адрес тестовой страницы (в данном случае это mockturtle.html) переменной url.</p>
+<p><code>url = '<a class="vglnk" href="https://assets.digitalocean.com/articles/eng_python/beautiful-soup/mockturtle.html" rel="nofollow"><span>https</span><span>://</span><span>assets</span><span>.</span><span>digitalocean</span><span>.</span><span>com</span><span>/</span><span>articles</span><span>/</span><span>eng</span><span>_</span><span>python</span><span>/</span><span>beautiful</span><span>-</span><span>soup</span><span>/</span><span>mockturtle</span><span>.</span><span>html</span></a>'</code></p>
+<p>Затем можно присвоить результат запроса этой страницы переменной page с помощью <a href="http://docs.python-requests.org/en/master/user/quickstart/#make-a-request">метода request.get()</a>. Передайте URL-адрес страницы, который был присвоен переменной url, этому методу.</p>
+<p><code>page = requests.get(url)</code></p>
+<p>Переменная page присвоена объекту Response.</p>
+<p><code>&gt;&gt;&gt; page<br>
+&lt;Response [200]&gt;<br>
+&gt;&gt;&gt;</code></p>
+<p>Объект Response сообщает свойство status_code в квадратных скобках (в данном случае это 200). Этот атрибут можно вызвать явно:</p>
+<p><code>&gt;&gt;&gt; page.status_code<br>
+200<br>
+&gt;&gt;&gt;</code></p>
+<p>Возвращаемый код 200 сообщает, что страница загружена успешно. Коды, 
+начинающиеся с номера 2, обычно указывают на успешное выполнение 
+операции, а коды, начинающиеся с 4 или 5, сообщают об ошибке. Вы можете 
+узнать больше о кодах состояния HTTP по <a href="https://www.w3.org/Protocols/HTTP/1.1/draft-ietf-http-v11-spec-01#Status-Codes">этой ссылке</a>.</p>
+<p>Чтобы работать с веб-данными, нужно получить доступ к текстовому 
+содержимому веб-файлов. Прочитать содержимое ответа сервера можно с 
+помощью page.text (или page.content, чтобы получить значение в байтах).</p>
+<p><code>page.text</code></p>
+<p>Нажмите Enter.</p>
+<p><code>'&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"\n<br>
+"<a class="vglnk" href="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd" rel="nofollow"><span>http</span><span>://</span><span>www</span><span>.</span><span>w3</span><span>.</span><span>org</span><span>/</span><span>TR</span><span>/</span><span>xhtml1</span><span>/</span><span>DTD</span><span>/</span><span>xhtml1</span><span>-</span><span>strict</span><span>.</span><span>dtd</span></a>"&gt;\n\n&lt;html lang="en-US"<br>
+xmlns="<a class="vglnk" href="http://www.w3.org/1999/xhtml" rel="nofollow"><span>http</span><span>://</span><span>www</span><span>.</span><span>w3</span><span>.</span><span>org</span><span>/</span><span>1999</span><span>/</span><span>xhtml</span></a>" xml:lang="en-US"&gt;\n&lt;head&gt;\n&nbsp; &lt;meta<br>
+http-equiv="content-type" content="text/html; charset=us-ascii" /&gt;\n\n&nbsp; &lt;title&gt;Turtle<br>
+Soup&lt;/title&gt;\n&lt;/head&gt;\n\n&lt;body&gt;\n&nbsp; &lt;h1&gt;Turtle Soup&lt;/h1&gt;\n\n&nbsp; &lt;p class="verse"<br>
+id="first"&gt;Beautiful Soup, so rich and green,&lt;br /&gt;\n&nbsp; Waiting in a hot tureen!&lt;br /&gt;\n&nbsp; Who for<br>
+such dainties would not stoop?&lt;br /&gt;\n&nbsp; Soup of the evening, beautiful Soup!&lt;br /&gt;\n&nbsp; Soup of<br>
+the evening, beautiful Soup!&lt;br /&gt;&lt;/p&gt;\n\n&nbsp; &lt;p class="chorus" id="second"&gt;Beau--ootiful<br>
+Soo--oop!&lt;br /&gt;\n&nbsp; Beau--ootiful Soo--oop!&lt;br /&gt;\n&nbsp; Soo--oop of the e--e--evening,&lt;br /&gt;\n<br>
+Beautiful, beautiful Soup!&lt;br /&gt;&lt;/p&gt;\n\n&nbsp; &lt;p class="verse" id="third"&gt;Beautiful Soup! Who cares<br>
+for fish,&lt;br /&gt;\n&nbsp; Game or any other dish?&lt;br /&gt;\n&nbsp; Who would not give all else for two&lt;br /&gt;\n<br>
+Pennyworth only of Beautiful Soup?&lt;br /&gt;\n&nbsp; Pennyworth only of beautiful Soup?&lt;br /&gt;&lt;/p&gt;\n\n<br>
+&lt;p class="chorus" id="fourth"&gt;Beau--ootiful Soo--oop!&lt;br /&gt;\n&nbsp; Beau--ootiful Soo--oop!&lt;br /&gt;\n<br>
+Soo--oop of the e--e--evening,&lt;br /&gt;\n&nbsp; Beautiful, beauti--FUL SOUP!&lt;br<br>
+/&gt;&lt;/p&gt;\n&lt;/body&gt;\n&lt;/html&gt;\n'<br>
+&gt;&gt;&gt;</code></p>
+<p>Полный текст страницы был отображен со всеми тегами HTML. Однако его 
+трудно прочитать, поскольку между ними не так много пробелов.</p>
+<h2>Анализ веб-данных с помощью Beautiful Soup</h2>
+<p>Библиотека Beautiful Soup создает дерево синтаксического разбора из 
+проанализированных HTML и XML-документов (включая документы с открытыми 
+тегами, <a href="https://en.wikipedia.org/wiki/Tag_soup">tag soup</a> и неправильной разметкой). Эта библиотека сделает текст веб-страницы, извлеченный с помощью Requests, более удобочитаемым.</p>
+<p>Импортируйте Beautiful Soup в консоль Python.</p>
+<p><code>from bs4 import BeautifulSoup</code></p>
+<p>Затем нужно запустить обработку документа page.text, чтобы получить 
+объект BeautifulSoup, то есть дерево синтаксического разбора этой 
+страницы, полученной с помощью встроенного html.parser через HTML. 
+Построенный объект представляет документ mockturtle.html как вложенную 
+структуру данных, которая присваивается переменной soup.</p>
+<p><code>soup = BeautifulSoup(page.text, 'html.parser')</code></p>
+<p>Чтобы отобразить содержимое страницы в терминале, используйте метод 
+prettify(), который превратить дерево разбора Beautiful Soup в красиво 
+отформатированную строку Unicode.</p>
+<p><code>print(soup.prettify())<br>
+&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"<br>
+"<a class="vglnk" href="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd" rel="nofollow"><span>http</span><span>://</span><span>www</span><span>.</span><span>w3</span><span>.</span><span>org</span><span>/</span><span>TR</span><span>/</span><span>xhtml1</span><span>/</span><span>DTD</span><span>/</span><span>xhtml1</span><span>-</span><span>strict</span><span>.</span><span>dtd</span></a>"&gt;<br>
+&lt;html lang="en-US" xml:lang="en-US" xmlns="<a class="vglnk" href="http://www.w3.org/1999/xhtml" rel="nofollow"><span>http</span><span>://</span><span>www</span><span>.</span><span>w3</span><span>.</span><span>org</span><span>/</span><span>1999</span><span>/</span><span>xhtml</span></a>"&gt;<br>
+&lt;head&gt;<br>
+&lt;meta content="text/html; charset=utf-8" http-equiv="content-type"/&gt;<br>
+&lt;title&gt;<br>
+Turtle Soup<br>
+&lt;/title&gt;<br>
+&lt;/head&gt;<br>
+&lt;body&gt;<br>
+&lt;h1&gt;<br>
+Turtle Soup<br>
+&lt;/h1&gt;<br>
+&lt;p class="verse" id="first"&gt;<br>
+Beautiful Soup, so rich and green,<br>
+&lt;br/&gt;<br>
+Waiting in a hot tureen!<br>
+&lt;br/&gt;<br>
+Who for such dainties would not stoop?<br>
+&lt;br/&gt;<br>
+Soup of the evening, beautiful Soup!<br>
+...<br>
+&lt;/html&gt;</code></p>
+<p>В вышеприведенном выводе все теги размещены в отдельных строках. Теги
+ вложены из-за схемы дерева, которую использует Beautiful Soup.</p>
+<h2>Поиск экземпляров тега</h2>
+<p>Извлечь один тег со страницы можно с помощью метода find_all. Он вернет все экземпляры данного тега в документе.</p>
+<p><code>soup.find_all('p')</code></p>
+<p>Применив этот метод, вы получите полный текст с соответствующими 
+тегами &lt;p&gt; и любыми тегами, содержащимися в этом запрошенном теге 
+(например, тег &lt;br/&gt;).</p>
+<p><code>[&lt;p class="verse" id="first"&gt;Beautiful Soup, so rich and green,&lt;br/&gt;<br>
+Waiting in a hot tureen!&lt;br/&gt;<br>
+Who for such dainties would not stoop?&lt;br/&gt;<br>
+Soup of the evening, beautiful Soup!&lt;br/&gt;<br>
+Soup of the evening, beautiful Soup!&lt;br/&gt;&lt;/p&gt;, &lt;p 
+class="chorus" id="second"&gt;Beau--ootiful Soo--oop!&lt;br/&gt;<br>
+...<br>
+Beau--ootiful Soo--oop!&lt;br/&gt;<br>
+Soo--oop of the e--e--evening,&lt;br/&gt;<br>
+Beautiful, beauti--FUL SOUP!&lt;br/&gt;&lt;/p&gt;]</code></p>
+<p>В выводе вы увидите, что данные содержатся в квадратных скобках []. Этот тип данных Python называется списками.</p>
+<p style="padding-left: 30px;"><strong>Читайте также:</strong> <a href="https://www.8host.com/blog/rabota-so-spiskami-v-python-3/">Работа со списками в Python 3</a></p>
+<p>Вы можете вызвать определенный элемент списка (например, третий 
+элемент &lt;p&gt;) и использовать метод get_text () для извлечения всего
+ текста из этого тега:</p>
+<p><code>soup.find_all('p')[2].get_text()<br>
+'Beautiful Soup! Who cares for fish,\n&nbsp; Game or any other 
+dish?\n&nbsp; Who would not give all else for two\n&nbsp; Pennyworth 
+only of Beautiful Soup?\n&nbsp; Pennyworth only of beautiful Soup?'</code></p>
+<p>Обратите внимание, что разрывы строк \n также показаны в возвращаемой строке.</p>
+<h2>Поиск тегов по классам и ID</h2>
+<p>Элементы HTML, относящиеся к селекторам CSS, такие как класс и ID, 
+могут быть полезны при работе с веб-данными и Beautiful Soup. Настроить 
+целевые классы и ID можно с помощью метода find_all(), передав ему 
+строки класса и ID в качестве аргументов.</p>
+<p>Попробуйте найти все экземпляры класса chorus. В Beautiful Soup присвойте строку класса ключевому слову class_:</p>
+<p><code>soup.find_all(class_='chorus')<br>
+Запустите эту строку, и вы увидите:<br>
+[&lt;p class="chorus" id="second"&gt;Beau--ootiful Soo--oop!&lt;br/&gt;<br>
+Beau--ootiful Soo--oop!&lt;br/&gt;<br>
+Soo--oop of the e--e--evening,&lt;br/&gt;<br>
+Beautiful, beautiful Soup!&lt;br/&gt;&lt;/p&gt;, &lt;p class="chorus" id="fourth"&gt;Beau--ootiful Soo--oop!&lt;br/&gt;<br>
+Beau--ootiful Soo--oop!&lt;br/&gt;<br>
+Soo--oop of the e--e--evening,&lt;br/&gt;<br>
+Beautiful, beauti--FUL SOUP!&lt;br/&gt;&lt;/p&gt;]</code></p>
+<p>Две секции &lt;p&gt;-с классом chorus появятся на терминале.</p>
+<p>Также можно указать, что класс chorus нужно искать только в тегах &lt;p&gt;, если он используется для нескольких тегов:</p>
+<p><code>soup.find_all('p', class_='chorus')</code></p>
+<p>Запустите эту строку, и вы получите тот же вывод, что и раньше.</p>
+<p>Также можно использовать Beautiful Soup для поиска целевых 
+идентификаторов, связанных с тегами HTML. Попробуйте присвоить строку 
+third ключевому слову id:</p>
+<p><code>soup.find_all(id='third')<br>
+[&lt;p class="verse" id="third"&gt;Beautiful Soup! Who cares for fish,&lt;br/&gt;<br>
+Game or any other dish?&lt;br/&gt;<br>
+Who would not give all else for two&lt;br/&gt;<br>
+Pennyworth only of Beautiful Soup?&lt;br/&gt;<br>
+Pennyworth only of beautiful Soup?&lt;br/&gt;&lt;/p&gt;]</code></p>
+<p>Текст, связанный с тегом &lt;p&gt; идентификатором third, выводится в терминал вместе с соответствующими тегами.</p>
+<h2>Заключение</h2>
+<p>В этом мануале вы научились извлекать данные веб-страницы с помощью 
+модуля Requests и выполнять предварительный scraping текстовых данных 
+этой веб-страницы с помощью библиотеки Beautiful Soup.</p>
+<div class="wpInsert wpInsertInPostAd wpInsertBelow" style="margin: 5px; padding: 0px;
+display:block"><!-- Top -->
+<ins class="adsbygoogle" style="display: block; height: 60px;" data-ad-client="ca-pub-4672639452561295" data-ad-slot="5472232813" data-ad-format="auto" data-adsbygoogle-status="done"><ins id="aswift_1_expand" style="display:inline-table;border:none;height:60px;margin:0;padding:0;position:relative;visibility:visible;width:574px;background-color:transparent;"><ins id="aswift_1_anchor" style="display:block;border:none;height:60px;margin:0;padding:0;position:relative;visibility:visible;width:574px;background-color:transparent;"><iframe marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_1" name="aswift_1" style="left:0;position:absolute;top:0;width:574px;height:60px;" width="574" height="60" frameborder="0"></iframe></ins></ins></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>						<div class="pagelink"></div>
+
+
+
+						Tags: <a href="https://www.8host.com/blog/tag/beautiful-soup/" rel="tag">Beautiful Soup</a>, <a href="https://www.8host.com/blog/tag/python-3/" rel="tag">Python 3</a>, <a href="https://www.8host.com/blog/tag/requests/" rel="tag">Requests</a><br>
+						
+						
+<div id="disqus_thread"><iframe id="dsq-app4263" name="dsq-app4263" allowtransparency="true" scrolling="no" tabindex="0" title="Disqus" style="width: 1px !important; min-width: 100% !important; border: medium none !important; overflow: hidden !important; height: 386px !important;" src="%D0%A0%D0%B0%D0%B1%D0%BE%D1%82%D0%B0%20%D1%81%20%D0%B2%D0%B5%D0%B1-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%BC%D0%B8%20%D1%81%20%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%D1%8E%20Requests%20%D0%B8%20Beautiful%20Soup%20%D0%B2%20Python%203%20|%20www.8host.com_files/a_003.html" horizontalscrolling="no" verticalscrolling="no" width="100%" frameborder="0"></iframe></div>
+
+<script type="text/javascript">
+var disqus_url = 'https://www.8host.com/blog/rabota-s-veb-dannymi-s-pomoshhyu-requests-i-beautiful-soup-v-python-3/';
+var disqus_identifier = '3287 https://www.8host.com/blog/?p=3287';
+var disqus_container_id = 'disqus_thread';
+var disqus_shortname = '8host-blog';
+var disqus_title = "Работа с веб-данными с помощью Requests и Beautiful Soup в Python 3";
+var disqus_config_custom = window.disqus_config;
+var disqus_config = function () {
+    /*
+    All currently supported events:
+    onReady: fires when everything is ready,
+    onNewComment: fires when a new comment is posted,
+    onIdentify: fires when user is authenticated
+    */
+    
+    
+    this.language = '';
+        this.callbacks.onReady.push(function () {
+
+        // sync comments in the background so we don't block the page
+        var script = document.createElement('script');
+        script.async = true;
+        script.src = '?cf_action=sync_comments&post_id=3287';
+
+        var firstScript = document.getElementsByTagName('script')[0];
+        firstScript.parentNode.insertBefore(script, firstScript);
+    });
+    
+    if (disqus_config_custom) {
+        disqus_config_custom.call(this);
+    }
+};
+
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+
+
+					</article>
+					<!-- /article -->
+
+				
+			
+	</section>
+	<!-- /section -->
+</main>
+</div>
+
+<div class="3u 12u$(small) article-sidebar">
+
+	<!-- sidebar -->
+		<aside class="sidebar" role="complementary">
+			<div class="sidebar-widget">
+				<div id="text-8" class="widget_text">			<div class="textwidget"><p><!-- Right 300x600 --><br>
+<ins class="adsbygoogle" style="display:inline-block;width:300px;height:600px" data-ad-client="ca-pub-4672639452561295" data-ad-slot="4498842740" data-adsbygoogle-status="done"><ins id="aswift_2_expand" style="display:inline-table;border:none;height:600px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent;"><ins id="aswift_2_anchor" style="display:block;border:none;height:600px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent;"><iframe marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_2" name="aswift_2" style="left:0;position:absolute;top:0;width:300px;height:600px;" width="300" height="600" frameborder="0"></iframe></ins></ins></ins><br>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script></p>
+</div>
+		</div><div id="categories-2" class="widget_categories"><h3>Рубрики</h3>		<ul>
+	<li class="cat-item cat-item-58"><a href="https://www.8host.com/blog/category/arch-linux/" title="Стабильный и простой дистрибутив Linux. Здесь вы найдете советы по установке, настройкам и обзоры. Отзывы и вопросы оставляйте в комментариях к статьям.">Arch Linux</a>
+</li>
+	<li class="cat-item cat-item-10"><a href="https://www.8host.com/blog/category/centos/" title=" Дистрибутив Linux, основанный Red Hat Enterprise Linux. Здесь вы найдете рекомендации по установке, настройкам и обзоры. Отзывы оставляйте в комментариях.">Centos</a>
+</li>
+	<li class="cat-item cat-item-57"><a href="https://www.8host.com/blog/category/cloud-server/" title="Cloud Server - облачный виртуальный сервер VPS/VDS. Как установить и настроить VPS? Репликация баз данных и многое другое в статьях нашего информатория.">Cloud Server</a>
+</li>
+	<li class="cat-item cat-item-52"><a href="https://www.8host.com/blog/category/debian/" title="Рекомендации по настройке сервера на Debian Linux. Установка Git, настройка Nginx, установка стека LAMP. Отзывы и вопросы внизу статей.">Debian</a>
+</li>
+	<li class="cat-item cat-item-600"><a href="https://www.8host.com/blog/category/freebsd/" title="Установка ОС FreeBSD на VPS. Рекомендации, обзоры, советы по установкам FAMP Stack, Java, защита сайта от уязвимостей.">FreeBSD</a>
+</li>
+	<li class="cat-item cat-item-7"><a href="https://www.8host.com/blog/category/ftp/" title="Как работать с FTP на виртуальном сервере (VPS). Использование SSL/TLS, рекомендации и советы.">FTP</a>
+</li>
+	<li class="cat-item cat-item-38"><a href="https://www.8host.com/blog/category/general/" title="Настройка DNS, использование SMTP-сервера и другие базовые действия настройки VPS на Linux. Советы и рекомендации в статьях">General</a>
+</li>
+	<li class="cat-item cat-item-179"><a href="https://www.8host.com/blog/category/java/" title="Установка Java в Ubuntu, CentOS 7, настройка фреймворка Node.js. Рекомендации, обзоры, советы по настройкам.">Java</a>
+</li>
+	<li class="cat-item cat-item-12"><a href="https://www.8host.com/blog/category/lampstack/" title="Установка стека LAMP в Ubuntu, CentOS, Fedora 22, Debian, Arch Linux. Пошаговое описание процесса, рекомендации и отзывы.">LAMP Stack</a>
+</li>
+	<li class="cat-item cat-item-209"><a href="https://www.8host.com/blog/category/lemp-stack/" title="Установка стека LEMP Stack (Linux, nginx, MySQL, PHP) на Ubuntu, CentOS, Fedora 22, Debian, Arch Linux. Пошаговое описание процесса, рекомендации и отзывы.">LEMP Stack</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="https://www.8host.com/blog/category/linux/" title="Установка ОС Linux на VPS/VDS: пошаговые пособия по работе с БД, установка и обновление Nginx, работа с GitLab и многое другое">Linux</a>
+</li>
+	<li class="cat-item cat-item-235"><a href="https://www.8host.com/blog/category/mariadb/" title="Работа с базами данных MariaDB: рекомендации по резервному копированию и защите БД  на Ubuntu Linux. Советы и рекомендации в статьях, отзывы внизу статей.">MariaDB</a>
+</li>
+	<li class="cat-item cat-item-11"><a href="https://www.8host.com/blog/category/mysql/" title="Установка и работа MySQL на VPS с ОС Ubuntu, FreeBSD.  Рекомендации, обзоры, советы по установке">mySQL</a>
+</li>
+	<li class="cat-item cat-item-16"><a href="https://www.8host.com/blog/category/php/" title="Работа с PHP-фреймворками на VPS с ОС Linux, масштабирование PHP-приложений, обновление PHP и другие вопросы и рекомендации в статьях.">PHP</a>
+</li>
+	<li class="cat-item cat-item-106"><a href="https://www.8host.com/blog/category/python/" title="Развертывание и обслуживание приложений Django и других приложений на Pyton на VPS. Рекомендации, обзоры, советы по установке">Python</a>
+</li>
+	<li class="cat-item cat-item-644"><a href="https://www.8host.com/blog/category/rhel/" title="Red Hat Enterprise Linux - установка, настройка VPS(виртуального сервера). Рекомендации, обзоры, советы по настройкам. Отзывы и вопросы внизу статей.">RHEL</a>
+</li>
+	<li class="cat-item cat-item-2"><a href="https://www.8host.com/blog/category/ruby/" title="Развёртывание Rails-приложения  и установка Ruby на VPS на Ubuntu, CentOS , Debian. Рекомендации, обзоры, советы по настройкам.">Ruby</a>
+</li>
+	<li class="cat-item cat-item-17"><a href="https://www.8host.com/blog/category/ssh/" title="SSH-подключение к серверу VPS, установка и настройка, изменение паролей, использование SSH для подключения к удаленному серверу. Рекомендации и отзывы.">SSH</a>
+</li>
+	<li class="cat-item cat-item-6"><a href="https://www.8host.com/blog/category/ubuntu/" title="Подбор статей о работе с сервером на Ubuntu разных версий. Настройки, установка, развертывание приложений.">Ubuntu</a>
+</li>
+	<li class="cat-item cat-item-37"><a href="https://www.8host.com/blog/category/vps/">VPS</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="https://www.8host.com/blog/category/uncategorized/" title="Здесь вы найдете дополнительные материалы по установке приложений, ОС на VPS, советы по работе с БД. Всё, что не вошло в основные категории информатория">Без категорий</a>
+</li>
+		</ul>
+</div><style scoped="" type="text/css">.utcw-857bnk3 {word-wrap:break-word}.utcw-857bnk3 span,.utcw-857bnk3 a{border-width:0px}.utcw-857bnk3 span:hover,.utcw-857bnk3 a:hover{border-width:0px}</style><div id="utcw-2" class="widget_utcw widget_tag_cloud"><h3>Поиск по меткам</h3><div class="utcw-857bnk3 tagcloud"><a class="tag-link-270 utcw-tag utcw-tag-htaccess" href="https://www.8host.com/blog/tag/htaccess/" style="font-size:10.068965517241px" title="30 topics">.htaccess</a> <a class="tag-link-13 utcw-tag utcw-tag-apache" href="https://www.8host.com/blog/tag/apache/" style="font-size:21.379310344828px" title="194 topics">Apache</a> <a class="tag-link-14 utcw-tag utcw-tag-centos-2" href="https://www.8host.com/blog/tag/centos-2/" style="font-size:14.896551724138px" title="100 topics">CentOS</a> <a class="tag-link-169 utcw-tag utcw-tag-centos-6" href="https://www.8host.com/blog/tag/centos-6/" style="font-size:11.310344827586px" title="48 topics">CentOS 6</a> <a class="tag-link-299 utcw-tag utcw-tag-centos-7" href="https://www.8host.com/blog/tag/centos-7/" style="font-size:16.344827586207px" title="121 topics">CentOS 7</a> <a class="tag-link-1059 utcw-tag utcw-tag-cloud-server" href="https://www.8host.com/blog/tag/cloud-server/" style="font-size:17.655172413793px" title="140 topics">Cloud Server</a> <a class="tag-link-1058 utcw-tag utcw-tag-debian" href="https://www.8host.com/blog/tag/debian/" style="font-size:12.068965517241px" title="59 topics">Debian</a> <a class="tag-link-54 utcw-tag utcw-tag-debian-7" href="https://www.8host.com/blog/tag/debian-7/" style="font-size:10.275862068966px" title="33 topics">Debian 7</a> <a class="tag-link-712 utcw-tag utcw-tag-debian-8" href="https://www.8host.com/blog/tag/debian-8/" style="font-size:11.034482758621px" title="44 topics">Debian 8</a> <a class="tag-link-104 utcw-tag utcw-tag-django" href="https://www.8host.com/blog/tag/django/" style="font-size:11.172413793103px" title="46 topics">Django</a> <a class="tag-link-230 utcw-tag utcw-tag-dns" href="https://www.8host.com/blog/tag/dns/" style="font-size:10.275862068966px" title="33 topics">DNS</a> <a class="tag-link-396 utcw-tag utcw-tag-docker" href="https://www.8host.com/blog/tag/docker/" style="font-size:12.137931034483px" title="60 topics">Docker</a> <a class="tag-link-425 utcw-tag utcw-tag-elasticsearch" href="https://www.8host.com/blog/tag/elasticsearch/" style="font-size:10.068965517241px" title="30 topics">ElasticSearch</a> <a class="tag-link-53 utcw-tag utcw-tag-git" href="https://www.8host.com/blog/tag/git/" style="font-size:12.344827586207px" title="63 topics">Git</a> <a class="tag-link-59 utcw-tag utcw-tag-iptables" href="https://www.8host.com/blog/tag/iptables/" style="font-size:10.413793103448px" title="35 topics">Iptables</a> <a class="tag-link-1062 utcw-tag utcw-tag-java" href="https://www.8host.com/blog/tag/java/" style="font-size:10.413793103448px" title="35 topics">Java</a> <a class="tag-link-193 utcw-tag utcw-tag-javascript" href="https://www.8host.com/blog/tag/javascript/" style="font-size:11.655172413793px" title="53 topics">Javascript</a> <a class="tag-link-269 utcw-tag utcw-tag-lamp-stack" href="https://www.8host.com/blog/tag/lamp-stack/" style="font-size:13.310344827586px" title="77 topics">LAMP stack</a> <a class="tag-link-852 utcw-tag utcw-tag-lets-encrypt" href="https://www.8host.com/blog/tag/lets-encrypt/" style="font-size:10.48275862069px" title="36 topics">Let's Encrypt</a> <a class="tag-link-1052 utcw-tag utcw-tag-linux" href="https://www.8host.com/blog/tag/linux/" style="font-size:30px" title="319 topics">Linux</a> <a class="tag-link-1064 utcw-tag utcw-tag-mariadb" href="https://www.8host.com/blog/tag/mariadb/" style="font-size:10px" title="29 topics">MariaDB</a> <a class="tag-link-338 utcw-tag utcw-tag-mongodb" href="https://www.8host.com/blog/tag/mongodb/" style="font-size:10.758620689655px" title="40 topics">MongoDB</a> <a class="tag-link-167 utcw-tag utcw-tag-mysql-2" href="https://www.8host.com/blog/tag/mysql-2/" style="font-size:18.758620689655px" title="156 topics">MySQL</a> <a class="tag-link-120 utcw-tag utcw-tag-nginx" href="https://www.8host.com/blog/tag/nginx/" style="font-size:23.931034482759px" title="231 topics">NGINX</a> <a class="tag-link-192 utcw-tag utcw-tag-node-js" href="https://www.8host.com/blog/tag/node-js/" style="font-size:11.655172413793px" title="53 topics">Node.js</a> <a class="tag-link-423 utcw-tag utcw-tag-nosql" href="https://www.8host.com/blog/tag/nosql/" style="font-size:10.137931034483px" title="31 topics">NoSQL</a> <a class="tag-link-1055 utcw-tag utcw-tag-php" href="https://www.8host.com/blog/tag/php/" style="font-size:16px" title="116 topics">PHP</a> <a class="tag-link-144 utcw-tag utcw-tag-postgresql" href="https://www.8host.com/blog/tag/postgresql/" style="font-size:11.172413793103px" title="46 topics">PostgreSQL</a> <a class="tag-link-1061 utcw-tag utcw-tag-python" href="https://www.8host.com/blog/tag/python/" style="font-size:13.793103448276px" title="84 topics">Python</a> <a class="tag-link-157 utcw-tag utcw-tag-python-3" href="https://www.8host.com/blog/tag/python-3/" style="font-size:12.965517241379px" title="72 topics">Python 3</a> <a class="tag-link-437 utcw-tag utcw-tag-rails" href="https://www.8host.com/blog/tag/rails/" style="font-size:10.275862068966px" title="33 topics">Rails</a> <a class="tag-link-1051 utcw-tag utcw-tag-ruby" href="https://www.8host.com/blog/tag/ruby/" style="font-size:12.206896551724px" title="61 topics">Ruby</a> <a class="tag-link-4 utcw-tag utcw-tag-ruby-on-rails" href="https://www.8host.com/blog/tag/ruby-on-rails/" style="font-size:10.413793103448px" title="35 topics">Ruby on Rails</a> <a class="tag-link-1056 utcw-tag utcw-tag-ssh" href="https://www.8host.com/blog/tag/ssh/" style="font-size:14.206896551724px" title="90 topics">SSH</a> <a class="tag-link-130 utcw-tag utcw-tag-ssl" href="https://www.8host.com/blog/tag/ssl/" style="font-size:15.51724137931px" title="109 topics">SSL</a> <a class="tag-link-207 utcw-tag utcw-tag-tls" href="https://www.8host.com/blog/tag/tls/" style="font-size:10.275862068966px" title="33 topics">TLS</a> <a class="tag-link-1053 utcw-tag utcw-tag-ubuntu" href="https://www.8host.com/blog/tag/ubuntu/" style="font-size:23.655172413793px" title="227 topics">Ubuntu</a> <a class="tag-link-24 utcw-tag utcw-tag-ubuntu-12-04" href="https://www.8host.com/blog/tag/ubuntu-12-04/" style="font-size:18.689655172414px" title="155 topics">Ubuntu 12.04</a> <a class="tag-link-35 utcw-tag utcw-tag-ubuntu-12-10" href="https://www.8host.com/blog/tag/ubuntu-12-10/" style="font-size:10px" title="29 topics">Ubuntu 12.10</a> <a class="tag-link-191 utcw-tag utcw-tag-ubuntu-14-04" href="https://www.8host.com/blog/tag/ubuntu-14-04/" style="font-size:24.965517241379px" title="246 topics">Ubuntu 14.04</a> <a class="tag-link-902 utcw-tag utcw-tag-ubuntu-16-04" href="https://www.8host.com/blog/tag/ubuntu-16-04/" style="font-size:24.137931034483px" title="234 topics">Ubuntu 16.04</a> <a class="tag-link-1163 utcw-tag utcw-tag-ubuntu-18-04" href="https://www.8host.com/blog/tag/ubuntu-18-04/" style="font-size:11.379310344828px" title="49 topics">Ubuntu 18.04</a> <a class="tag-link-107 utcw-tag utcw-tag-virtualenv" href="https://www.8host.com/blog/tag/virtualenv/" style="font-size:10.068965517241px" title="30 topics">virtualenv</a> <a class="tag-link-1057 utcw-tag utcw-tag-vps" href="https://www.8host.com/blog/tag/vps/" style="font-size:27.724137931034px" title="286 topics">VPS</a> <a class="tag-link-205 utcw-tag utcw-tag-wordpress" href="https://www.8host.com/blog/tag/wordpress/" style="font-size:11.586206896552px" title="52 topics">WordPress</a></div></div><div id="archives-2" class="widget_archive"><h3>Архивы</h3>		<label class="screen-reader-text" for="archives-dropdown-2">Архивы</label>
+		<select id="archives-dropdown-2" name="archive-dropdown" onchange="document.location.href=this.options[this.selectedIndex].value;">
+			
+			<option value="" selected="selected">Выберите месяц</option>
+				<option value="https://www.8host.com/blog/2018/08/"> Август 2018 &nbsp;(19)</option>
+	<option value="https://www.8host.com/blog/2018/07/"> Июль 2018 &nbsp;(29)</option>
+	<option value="https://www.8host.com/blog/2018/06/"> Июнь 2018 &nbsp;(27)</option>
+	<option value="https://www.8host.com/blog/2018/05/"> Май 2018 &nbsp;(27)</option>
+	<option value="https://www.8host.com/blog/2018/04/"> Апрель 2018 &nbsp;(26)</option>
+	<option value="https://www.8host.com/blog/2018/03/"> Март 2018 &nbsp;(30)</option>
+	<option value="https://www.8host.com/blog/2018/02/"> Февраль 2018 &nbsp;(25)</option>
+	<option value="https://www.8host.com/blog/2018/01/"> Январь 2018 &nbsp;(30)</option>
+	<option value="https://www.8host.com/blog/2017/12/"> Декабрь 2017 &nbsp;(30)</option>
+	<option value="https://www.8host.com/blog/2017/11/"> Ноябрь 2017 &nbsp;(30)</option>
+	<option value="https://www.8host.com/blog/2017/10/"> Октябрь 2017 &nbsp;(31)</option>
+	<option value="https://www.8host.com/blog/2017/09/"> Сентябрь 2017 &nbsp;(30)</option>
+	<option value="https://www.8host.com/blog/2017/08/"> Август 2017 &nbsp;(31)</option>
+	<option value="https://www.8host.com/blog/2017/07/"> Июль 2017 &nbsp;(31)</option>
+	<option value="https://www.8host.com/blog/2017/06/"> Июнь 2017 &nbsp;(30)</option>
+	<option value="https://www.8host.com/blog/2017/05/"> Май 2017 &nbsp;(31)</option>
+	<option value="https://www.8host.com/blog/2017/04/"> Апрель 2017 &nbsp;(30)</option>
+	<option value="https://www.8host.com/blog/2017/03/"> Март 2017 &nbsp;(33)</option>
+	<option value="https://www.8host.com/blog/2017/02/"> Февраль 2017 &nbsp;(28)</option>
+	<option value="https://www.8host.com/blog/2017/01/"> Январь 2017 &nbsp;(31)</option>
+	<option value="https://www.8host.com/blog/2016/12/"> Декабрь 2016 &nbsp;(31)</option>
+	<option value="https://www.8host.com/blog/2016/11/"> Ноябрь 2016 &nbsp;(30)</option>
+	<option value="https://www.8host.com/blog/2016/10/"> Октябрь 2016 &nbsp;(31)</option>
+	<option value="https://www.8host.com/blog/2016/09/"> Сентябрь 2016 &nbsp;(30)</option>
+	<option value="https://www.8host.com/blog/2016/08/"> Август 2016 &nbsp;(31)</option>
+	<option value="https://www.8host.com/blog/2016/07/"> Июль 2016 &nbsp;(31)</option>
+	<option value="https://www.8host.com/blog/2016/06/"> Июнь 2016 &nbsp;(30)</option>
+	<option value="https://www.8host.com/blog/2016/05/"> Май 2016 &nbsp;(31)</option>
+	<option value="https://www.8host.com/blog/2016/04/"> Апрель 2016 &nbsp;(30)</option>
+	<option value="https://www.8host.com/blog/2016/03/"> Март 2016 &nbsp;(31)</option>
+	<option value="https://www.8host.com/blog/2016/02/"> Февраль 2016 &nbsp;(29)</option>
+	<option value="https://www.8host.com/blog/2016/01/"> Январь 2016 &nbsp;(31)</option>
+	<option value="https://www.8host.com/blog/2015/12/"> Декабрь 2015 &nbsp;(31)</option>
+	<option value="https://www.8host.com/blog/2015/11/"> Ноябрь 2015 &nbsp;(30)</option>
+	<option value="https://www.8host.com/blog/2015/10/"> Октябрь 2015 &nbsp;(31)</option>
+	<option value="https://www.8host.com/blog/2015/09/"> Сентябрь 2015 &nbsp;(30)</option>
+	<option value="https://www.8host.com/blog/2015/08/"> Август 2015 &nbsp;(31)</option>
+	<option value="https://www.8host.com/blog/2015/07/"> Июль 2015 &nbsp;(31)</option>
+	<option value="https://www.8host.com/blog/2015/06/"> Июнь 2015 &nbsp;(30)</option>
+	<option value="https://www.8host.com/blog/2015/05/"> Май 2015 &nbsp;(31)</option>
+	<option value="https://www.8host.com/blog/2015/04/"> Апрель 2015 &nbsp;(30)</option>
+	<option value="https://www.8host.com/blog/2015/03/"> Март 2015 &nbsp;(31)</option>
+	<option value="https://www.8host.com/blog/2015/02/"> Февраль 2015 &nbsp;(28)</option>
+	<option value="https://www.8host.com/blog/2015/01/"> Январь 2015 &nbsp;(31)</option>
+	<option value="https://www.8host.com/blog/2014/12/"> Декабрь 2014 &nbsp;(31)</option>
+	<option value="https://www.8host.com/blog/2014/11/"> Ноябрь 2014 &nbsp;(30)</option>
+	<option value="https://www.8host.com/blog/2014/10/"> Октябрь 2014 &nbsp;(31)</option>
+	<option value="https://www.8host.com/blog/2014/09/"> Сентябрь 2014 &nbsp;(30)</option>
+	<option value="https://www.8host.com/blog/2014/08/"> Август 2014 &nbsp;(31)</option>
+	<option value="https://www.8host.com/blog/2014/07/"> Июль 2014 &nbsp;(31)</option>
+	<option value="https://www.8host.com/blog/2014/06/"> Июнь 2014 &nbsp;(25)</option>
+	<option value="https://www.8host.com/blog/2014/05/"> Май 2014 &nbsp;(22)</option>
+	<option value="https://www.8host.com/blog/2014/04/"> Апрель 2014 &nbsp;(22)</option>
+	<option value="https://www.8host.com/blog/2014/03/"> Март 2014 &nbsp;(20)</option>
+	<option value="https://www.8host.com/blog/2014/02/"> Февраль 2014 &nbsp;(6)</option>
+	<option value="https://www.8host.com/blog/2014/01/"> Январь 2014 &nbsp;(12)</option>
+	<option value="https://www.8host.com/blog/2013/12/"> Декабрь 2013 &nbsp;(11)</option>
+
+		</select>
+		</div>			</div>
+		</aside>
+	
+			<aside class="sidebar" role="complementary">
+			<div class="sidebar-widget">
+				<div id="text-11" class="widget_text">			<div class="textwidget"><p><!-- 300x600 v.2 --><br>
+<ins class="adsbygoogle" style="display: inline-block; width: 300px; height: 600px;" data-ad-client="ca-pub-4672639452561295" data-ad-slot="9427006842" data-adsbygoogle-status="done"><ins id="aswift_3_expand" style="display:inline-table;border:none;height:600px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent;"><ins id="aswift_3_anchor" style="display:block;border:none;height:600px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent;"><iframe marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_3" name="aswift_3" style="left:0;position:absolute;top:0;width:300px;height:600px;" width="300" height="600" frameborder="0"></iframe></ins></ins></ins><br>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script></p>
+</div>
+		</div>			</div>
+		</aside>
+	
+	
+
+</div>
+</div>
+
+
+
+</div>
+</section>
+
+
+        <script type="text/javascript">
+        // <![CDATA[
+        var disqus_shortname = '8host-blog';
+        (function () {
+            var nodes = document.getElementsByTagName('span');
+            for (var i = 0, url; i < nodes.length; i++) {
+                if (nodes[i].className.indexOf('dsq-postid') != -1 && nodes[i].parentNode.tagName == 'A') {
+                    nodes[i].parentNode.setAttribute('data-disqus-identifier', nodes[i].getAttribute('data-dsqidentifier'));
+                    url = nodes[i].parentNode.href.split('#', 1);
+                    if (url.length == 1) { url = url[0]; }
+                    else { url = url[1]; }
+                    nodes[i].parentNode.href = url + '#disqus_thread';
+                }
+            }
+            var s = document.createElement('script');
+            s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+        // ]]>
+        </script>
+        <script type="text/javascript" src="%D0%A0%D0%B0%D0%B1%D0%BE%D1%82%D0%B0%20%D1%81%20%D0%B2%D0%B5%D0%B1-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%BC%D0%B8%20%D1%81%20%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%D1%8E%20Requests%20%D0%B8%20Beautiful%20Soup%20%D0%B2%20Python%203%20|%20www.8host.com_files/comment-reply.js"></script>
+<script type="text/javascript" src="%D0%A0%D0%B0%D0%B1%D0%BE%D1%82%D0%B0%20%D1%81%20%D0%B2%D0%B5%D0%B1-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%BC%D0%B8%20%D1%81%20%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%D1%8E%20Requests%20%D0%B8%20Beautiful%20Soup%20%D0%B2%20Python%203%20|%20www.8host.com_files/wp-embed.js"></script>
+<!-- Footer -->
+<!-- Footer -->
+<footer id="footer">
+	<div class="container">
+		<section class="links">
+			<div class="row">
+				<section class="3u 6u(medium) 12u$(small)">
+					<h3>Продукт</h3>
+					<ul class="unstyled">
+						<li><a href="https://www.8host.com/pricing">Цены</a></li>
+						<li><a href="https://www.8host.com/features">Преимущества</a></li>
+						<li><a href="https://www.8host.com/pricing#payment-methods">Способы оплаты</a></li>
+<!--						<li><a href="http://www.8host.com/features#features-tech">Технологии</a></li>
+						<li><a href="#">API</a></li>-->
+					</ul>
+				</section>
+				<section class="3u 6u$(medium) 12u$(small)">
+					<h3>Компания</h3>
+					<ul class="unstyled">
+						<li><a href="https://www.8host.com/features#features-freedom">О нас</a></li>
+						<li><a href="https://www.8host.com/blog/">Блог</a></li>
+						<li><a href="https://www.8host.com/contact-us">Контакты</a></li>
+<!--						<li><a href="#">События</a></li>
+						<li><a href="#">Лого и бейджи</a></li>
+						<li><a href="#">Пресса</a></li>  -->
+					</ul>
+				</section>
+				<section class="3u 6u(medium) 12u$(small)">
+					<h3>Помощь</h3>
+					<ul class="unstyled">
+						<li><a href="https://www.8host.com/blog/">Информаторий</a></li>
+						<li><a href="https://www.8host.com/contact-us">Техподдержка</a></li>
+						<li><a href="https://www.8host.com/contact-us">Оставить запрос</a></li>
+<!--						<li><a href="#">Статус сети</a></li>
+						<li><a href="#">Вопросы и ответы</a></li>   -->
+					</ul>
+				</section>
+				<section class="3u$ 6u$(medium) 12u$(small)">
+					<h3>Преимущества</h3>
+					<ul class="unstyled">
+						<li><a href="https://www.8host.com/features#features-tech">Технологии</a></li>
+						<li><a href="https://www.8host.com/features#features-freedom">Свобода и безопасность</a></li>
+						<li><a href="https://www.8host.com/features#features-reliability">Надежность</a></li>
+						<li><a href="https://www.8host.com/features#features-access">Доступность</a></li>
+					</ul>
+				</section>
+			</div>
+		</section>
+	</div>
+	<section class="under-footer">
+		<div class="container">
+			<div class="row">
+				<div class="8u 12u$(medium)">
+					<ul class="copyright">
+						<li>© 2016 <a class="vglnk" href="http://www.8host.com/" rel="nofollow"><span>www</span><span>.</span><span>8host</span><span>.</span><span>com</span></a></li>
+						<li><a href="https://www.8host.com/privacy">Безопасность</a></li>
+						<li><a href="https://www.8host.com/terms-and-conditions">Условия предоставления услуг</a></li>
+					</ul>
+				</div>
+				<div class="4u$ 12u$(medium)">
+					<ul class="icons">
+						<li>
+							<a class="icon rounded fa-facebook" href="https://www.facebook.com/pages/8Host/1063590243670236?ref=hl"><span class="label">Facebook</span></a>
+						</li>
+						<li>
+							<a class="icon rounded fa-twitter" href="https://twitter.com/8Host_social"><span class="label">Twitter</span></a>
+						</li>
+						<li>
+							<a class="icon rounded fa-google-plus" href="https://plus.google.com/u/0/b/105145648824775848083/105145648824775848083/about"><span class="label">Google+</span></a>
+						</li>
+						<li>
+							<a class="icon rounded fa-linkedin" href="https://www.linkedin.com/grp/home?gid=8310064"><span class="label">LinkedIn</span></a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+</footer>
+
+
+</div><div id="skel-layers-hiddenWrapper" style="height: 100%;"></div><div id="skel-layers-visibleWrapper" style="position: relative;"></div><iframe style="display: none;"></iframe><iframe id="google_osd_static_frame_5603085324940" name="google_osd_static_frame" style="display: none; width: 0px; height: 0px;"></iframe><script type="text/javascript" id="" src="%D0%A0%D0%B0%D0%B1%D0%BE%D1%82%D0%B0%20%D1%81%20%D0%B2%D0%B5%D0%B1-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%BC%D0%B8%20%D1%81%20%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%D1%8E%20Requests%20%D0%B8%20Beautiful%20Soup%20%D0%B2%20Python%203%20|%20www.8host.com_files/watch.js"></script>
+
+<script type="text/javascript" id="">var yaCounter36702860=new Ya.Metrika({id:36702860,clickmap:!0,trackLinks:!0,accurateTrackBounce:!0,webvisor:!0});</script></body></html>
